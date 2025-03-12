@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caju</title>
+
+<style>
+/* Estilos Globais */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+:root {
+  --red: #E80537;
+  --red--dark: #74031C;
+  --orange: #FF7500;
+
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #E80537;
+    border-radius: 6px;
+    border: 0px solid #F5F5F5;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 12px;
+    background-color: #F5F5F5;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+    border-radius: 6px;
+    border: 0px solid #F5F5F5;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+.max__width {
+  max-width: 1280px;
+  width: calc(100% - 100px);
+  margin: auto
+}
+body {
+  background: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+button {
+  cursor: pointer;
+  border: none;
+  width: max-content;
+}
+.button__red, .button__white {
+  border-radius: 16px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0 24px;
+}
+.button__red {
+  background: var(--red);
+  color: white;
+}
+.button__white {
+  background: white;
+  color: var(--red);
+}
+.button__red--dark {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 16px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 50px;
+  background: var(--red--dark);
+  height: 34px;
+  transition: .2s;
+}
+.button__red--dark:hover {
+  transition: .2s;
+  background: var(--red);
+}
+.sections__title {
+  margin: 100px 0 70px 0;
+  font-size: 44px;
+  width: 100%;
+  font-weight: 600;
+  line-height: 54px;
+}
+.sections__title span {
+  color: var(--red);
+}
+
+/* Estilos Globais ↑ */
+</style>
+<style>
+/* Banner ↓ */
+.banner {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  min-height: 600px;
+  background: var(--orange);
+}
+.banner .max__width {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  padding: 24px 0 40px 0;
+  margin: auto;
+  min-height: 600px;
+  background: var(--orange);
+}
+.banner__container {
+  position: relative;
+  display: flex;  
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+  z-index: 3;
+}
+.banner__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 74px;
+  width: 100%;
+  margin-bottom: 40px;
+  background: white;
+  z-index: 2;
+  border-radius: 20px;
+}
+.banner__logo {
+  object-fit: contain;
+}
+.banner__grid {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: 100px;
+  width: calc(100% - 200px);
+}
+.banner__col--1 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.banner__title {
+  font-size: 56px;
+  line-height: 110%;
+  letter-spacing: 0%;
+  color: #FFFFFF;
+}
+.banner__col--2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.banner__description {
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 130%;
+}
+/* Formulário ↓ */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-sizing: border-box;
+  width: 400px;
+  border-radius: 20px;
+  border-width: 1px;
+  gap: 10px;
+  padding: 36px;
+  z-index: 1;
+}
+.form__grafismo {
+  position: absolute;
+  height: 100%;
+  left: 100px;
+  max-height: 600px;
+}
+.form__title {
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+.form__subtitle {
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.form__input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+.form__ic1 {
+  margin-top: 20px;
+}
+.form__input {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  color: #f00;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  height: 44px;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+.form__cut {
+  background-color: white;
+  border-radius: 6px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+.form__cut-short {
+  width: 50px;
+}
+.form__input:focus ~ .form__cut,
+.form__input:not(:placeholder-shown) ~ .form__cut {
+  transform: translateY(8px);
+}
+.form__placeholder {
+  color: gray;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 15px;
+}
+.form__input:focus ~ .form__placeholder,
+.form__input:not(:placeholder-shown) ~ .form__placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+.form__input:not(:placeholder-shown) ~ .form__placeholder {
+  color: gray;
+}
+.form__input:focus ~ .form__placeholder {
+  color: #f00;
+}
+.form__submit {
+  background-color: var(--red);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 28px;
+  text-align: center;
+  width: 100%;
+  transition: .2s;
+}
+.form__submit:active {
+  transition: .2s;
+  background-color: var(--red--dark);
+}
+.form__disclamer {
+  font-size: 10px;
+  color: #4D4D4D;
+  text-align: center;
+  margin-top: 4px;
+}
+/* Rodape ↓ */
+.rodape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--red);
+}
+/* Cartao ↓ */
+.cartao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 160%;
+  color: white;
+  margin: 100px 0;
+}
+.cartao__ctn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 40px;
+}
+.cartao__title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 160%;
+  margin-bottom: 16px;
+}
+.cartao__img {
+  width: 100%;
+}
+.cartao__texts {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Footer ↓ */
+footer {
+  border-radius: 32px;
+  background: var(--orange);
+  margin-bottom: 24px !important;
+  padding: 48px 100px;
+}
+.footer__logo {
+  object-fit: contain;
+  object-position: left;
+  height: 54px;
+}
+.foooter__blog--title {
+  display: flex;
+  height: 48px;
+  padding: 10px 20px;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 14px;
+  background: var(--Backgrounds-Primary, #FFF);
+  color: #E80537;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+  width: 192px;
+}
+.footer__redes {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+.footer__border {
+  background-color: #FFF;
+  height: 2px;
+  width: 100%;
+  border: none !important;
+}
+.footer__mob img {
+  height: 48px;
+  object-fit: contain;
+}
+.footer__icons, .footer__mob {
+  display: flex;
+  gap: 8px;
+}
+.foooter__direitos {
+  color: var(--Backgrounds-Primary, #FFF);
+  font-feature-settings: 'ss01' on;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+.footer__termos {
+  display: flex;
+  gap: 32px;
+}
+.footer__termos a {
+  color: var(--Backgrounds-Primary, #FFF);
+  font-size: 16px;
+  font-style: normal;
+  line-height: 160%;
+  text-decoration-line: underline;
+}
+.footer__termos p {
+  color: var(--Backgrounds-Primary, #FFF);
+  font-feature-settings: 'ss01' on;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4vh;
+}
+/* FOOTER ↑ */
+</style>
+<link rel="stylesheet" href="counter.css">
+</head>
+<body>
+  
+  <section class="banner">
+    <div class="max__width">
+      <div class="banner__container">
+        <div class="banner__header">
+        <img class="banner__logo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/43ca9170-b825-4e21-ad6d-f709d588f1df.png" width="300" height="30" alt="">
+      </div>
+
+      <div class="banner__grid">
+        <div class="banner__col--1">
+          <button class="button__red--dark">E-book gratuito</button>
+
+          <div class="banner__contador">
+            <p class="banner__p">O tempo está passando, não deixe para a última hora!</p>
+
+            <div class="counter__container">
+              <div id="countdown">
+                <ul>
+                  <li><span id="days"></span><p class="counter__display">Dias</p></li>
+                  <p class="counter__dots">:</p>
+                  <li><span id="hours"></span><p class="counter__display">Horas</p></li>
+                  <p class="counter__dots">:</p>
+                  <li><span id="minutes"></span><p class="counter__display">Minutos</p></li>
+                  <p class="counter__dots">:</p>
+                  <li><span id="seconds"></span><p class="counter__display">Segundos</p></li>
+                </ul>
+              </div>
+              <div id="content" class="emoji">
+                <span>🥳</span>
+                <span>🎉</span>
+                <span>🎂</span>
+              </div>
+            </div>
+            
+
+          </div>
+
+          <p class="banner__title">Garanta a conformidade da sua empresa com a <strong>NR-1 e proteja seus colaboradores!</strong></p>
+          <p class="banner__description">Baixe agora o <strong>Guia Prático para RH e DP</strong> e receba um checklist exclusivo para cumprir as exigências da NR-1 com facilidade!</p>
+        </div>
+
+        <div class="banner__col--2">
+          <img class="form__grafismo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/65f00ef3-f7be-46b5-b263-41a75a9bb594.png" alt="">
+          <div class="form">
+            <div class="form__title">Welcome</div>
+            <div class="form__subtitle">Let's create your account!</div>
+            <div class="form__input-container form__ic1">
+              <input id="firstname" class="form__input" type="text" placeholder=" " />
+              <div class="form__cut"></div>
+              <label for="firstname" class="form__placeholder">Digite aqui seu nome*</label>
+            </div>
+            <div class="form__input-container form__ic1">
+              <input id="lastname" class="form__input" type="text" placeholder=" " />
+              <div class="form__cut"></div>
+              <label for="lastname" class="form__placeholder">Digite aqui o e-mail corporativo*</label>
+            </div>
+            <div class="form__input-container form__ic1">
+              <input id="email" class="form__input" type="text" placeholder=" " />
+              <div class="form__cut form__cut-short"></div>
+              <label for="email" class="form__placeholder">Digite aqui o telefone*</label>
+            </div>
+            <div class="form__input-container form__ic1">
+              <input id="email" class="form__input" type="text" placeholder=" " />
+              <div class="form__cut form__cut-short"></div>
+              <label for="email" class="form__placeholder">Selecione a área que você trabalha*</label>
+            </div>
+            <div class="form__input-container form__ic1">
+              <input id="email" class="form__input" type="text" placeholder=" " />
+              <div class="form__cut form__cut-short"></div>
+              <label for="email" class="form__placeholder">Digite aqui o nome da empresa*</label>
+            </div>
+            <div class="form__input-container form__ic1">
+              <input id="email" class="form__input" type="text" placeholder=" " />
+              <div class="form__cut form__cut-short"></div>
+              <label for="email" class="form__placeholder">Digite o número de colaboradores*</label>
+            </div>
+            <button type="text" class="form__submit">Baixar material</button>
+            <p class="form__disclamer">Ao continuar, esteja ciente da política de privacidade da Caju.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </section>
+  
+  <section class="rodape">
+
+    <div class="cartao max__width">
+
+      <div class="cartao__ctn"><img class="cartao__img" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/d604ce69-c393-4260-9d85-63b6754ab246.png" alt=""></div>
+      
+      <div>
+        <p class="cartao__title">Quem é Caju?</p>
+        <div class="cartao__texts">
+          <p>Somos uma empresa de tecnologia que <strong>oferece benefícios e soluções para RHs</strong>, empregadores e gestores evoluírem a experiência, gestão e cuidado com suas operações e colaboradores.</p>
+          <p>Oferecemos <strong>cartão multibenefícios</strong> que concentra diferentes modalidades de benefícios em um único cartão e app para o colaborador, <strong>solução em despesas corporativas</strong> para fluxo de adiantamentos mais ágeis, gestão de gastos e viagens corporativas.</p>
+          <p>Além disso, temos uma <strong>solução integrada de premiações</strong> para incentivos, eventos ou para presentear colaboradores em ocasiões especiais via cartão Caju e a nossa plataforma <strong>Caju Ciclos</strong>, para admissão digital e gestão de dados.</p>
+          <button class="button__white">Saiba mais</button>
+        
+        </div>
+      </div>
+    </div>
+    
+  
+    <!-- Footer -->
+    <footer class="max__width">
+      <div class="footer__redes">
+        <img class="footer__logo" width="300" height="40"
+          src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/4b014168-9993-4033-b624-83cd44fe8412.png"
+          alt="Logo caju">
+        <div class="footer__icons">
+          <div class="container_blog">
+            <a data-hash="e_003_008_038_085_419_001" href="https://blog.caju.com.br/" target="_blank" class="foooter__blog--title">Acesse nosso blog</a>
+          </div>
+          <div class="footer__mob">
+            <a data-hash="e_003_001_001_033_062_001" data-label="instagram" href="https://www.instagram.com/caju/" target="_blank">
+              <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/a0320317-d2ae-4e88-8d2d-4d4c9d892df2.png" alt="">
+            </a>
+  
+            <a data-hash="e_003_001_001_033_062_001" data-label="linkedin" href="https://www.linkedin.com/company/cajubeneficios/posts/?feedView=all" target="_blank">
+              <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/30123b29-14e5-4d46-87ce-6e07a3dabb05.png" alt="">
+            </a>
+  
+            <a data-hash="e_003_001_001_033_062_001" data-label="facebook" href="https://pt-br.facebook.com/cajubeneficios/" target="_blank">
+             <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0b79b383-a951-42a6-8ae6-2fd1506f7771.png" alt="">
+            </a>
+  
+            <a data-hash="e_003_001_001_033_062_001" data-label="youtube" href="https://www.youtube.com/CajuBenef%C3%ADcios" target="_blank">
+              <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/a0d4377d-410c-47b6-aad0-a970db73155c.png" alt="">
+            </a>
+  
+            <a data-hash="e_003_001_001_033_062_001" data-label="x" href="https://x.com/cajubeneficios" target="_blank">
+             <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/5de46b93-fc8b-4fde-9aa5-b43e8ba373b8.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__border"></div>
+      <div class="footer__container">
+        <p class="foooter__direitos">Caju® 2025. Todos os direitos reservados.</p>
+        <div class="footer__termos">
+          <a data-hash="e_003_008_038_087_165_001" href="https://www.caju.com.br/privacidade" target="_blank">Política de privacidade</a>
+          <a data-hash="e_003_008_038_087_249_001" href="https://www.caju.com.br/termos-de-uso/empresas" target="_blank">Termos de Uso</a>
+          <p>Feito com 🧡 pelos Cajuenses</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+</body>
+
+
+<script>
+
+
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+//I'm adding this section so I don't have to keep updating this pen every year :-)
+//remove this if you don't need it
+let today = new Date(),
+    dd = String(today.getDate()).padStart(2, "0"),
+    mm = String(today.getMonth() + 1).padStart(2, "0"),
+    yyyy = today.getFullYear(),
+    nextYear = yyyy + 1,
+    dayMonth = "09/30/", // Mês / dia
+    birthday = dayMonth + yyyy;
+
+today = mm + "/" + dd + "/" + yyyy;
+if (today > birthday) {
+  birthday = dayMonth + nextYear;
+}
+//end
+
+const countDown = new Date(birthday).getTime(),
+  x = setInterval(function() {    
+    const now = new Date().getTime(),
+          distance = countDown - now;
+
+    document.getElementById("days").innerText = Math.floor(distance / (day)),
+    document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+    document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+    //do something later when date is reached
+    if (distance < 0) {
+      document.getElementById("headline").innerText = "It's my birthday!";
+      document.getElementById("countdown").style.display = "none";
+      document.getElementById("content").style.display = "block";
+      clearInterval(x);
+    }
+    //seconds
+  }, 0)
+</script>
+</html>
