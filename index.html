@@ -15,30 +15,35 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --red: #E80537;
   --red--dark: #74031C;
   --orange: #FF7500;
-
+  --cinza--claro: rgba(211, 211, 211, 1);
+  --cinza--escuro: rgba(77, 77, 77, 1);
+  --roxo: rgba(165, 66, 229, 1);
 }
 body::-webkit-scrollbar-thumb {
-    background-color: #E80537;
-    border-radius: 6px;
-    border: 0px solid #F5F5F5;
+  background-color: #E80537;
+  border-radius: 6px;
+  border: 0px solid #F5F5F5;
 }
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 12px;
-    background-color: #F5F5F5;
-    border-radius: 6px;
+  width: 6px;
+  height: 12px;
+  background-color: #F5F5F5;
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #cdcdcd;
-    border-radius: 6px;
-    border: 0px solid #F5F5F5;
+  background-color: #cdcdcd;
+  border-radius: 6px;
+  border: 0px solid #F5F5F5;
 }
 ::-webkit-scrollbar-corner {
-    background-color: transparent;
+  background-color: transparent;
 }
 .max__width {
   max-width: 1280px;
@@ -50,12 +55,15 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-button {
+button, .button__red, .button__white {
   cursor: pointer;
   border: none;
   width: max-content;
+  text-decoration: none;
 }
 .button__red, .button__white {
+  display: flex;
+  align-items: center;
   border-radius: 16px;
   height: 48px;
   font-weight: 500;
@@ -121,10 +129,14 @@ button {
   position: relative;
   display: flex;  
   align-items: center;
-  gap: 10px;
   flex-direction: column;
   width: 100%;
   z-index: 3;
+}
+.banner__ctn {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 .banner__header {
   display: flex;
@@ -168,19 +180,82 @@ button {
   font-size: 20px;
   line-height: 130%;
 }
+/* Counter ↓ */
+  
+.counter__contador {
+  border-radius: 18px;
+  padding: 32px 20px 24px 20px;
+  background: #FFAB66;
+}
+.counter__container {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+}
+.counter__p {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  text-wrap: wrap;
+  white-space: wrap;
+  color: var(--red--dark);
+}
+.counter__ul {
+  display: flex;
+  justify-content: center;
+}
+.counter__ul li, .counter__dots {
+  display: inline-block;
+  font-size: 54px;
+  padding: 10px;
+  color: #74031C;
+  font-weight: 900;
+}
+.counter__span {
+  display: block;
+  font-size: 54px;
+}
+.counter__display {
+  font-weight: initial;
+  font-size: 16px;
+}
+.counter__emoji {
+  display: none;
+  padding: 1rem;
+}
+.counter__emoji span {
+  font-size: 4rem;
+  padding: 0 .5rem;
+}
 /* Formulário ↓ */
-
 .form {
   display: flex;
   flex-direction: column;
   background-color: white;
   box-sizing: border-box;
+  border: 1px solid var(--cinza--claro);
   width: 400px;
   border-radius: 20px;
   border-width: 1px;
   gap: 10px;
-  padding: 36px;
+  padding: 30px;
   z-index: 1;
+}
+.form__title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+.form__ctn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .form__grafismo {
   position: absolute;
@@ -188,45 +263,53 @@ button {
   left: 100px;
   max-height: 600px;
 }
-.form__title {
-  font-family: sans-serif;
-  font-size: 36px;
-  font-weight: 600;
-}
-.form__subtitle {
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 10px;
-}
-.form__input-container {
-  height: 50px;
+.form__inputCtn {
   position: relative;
   width: 100%;
 }
-.form__ic1 {
-  margin-top: 20px;
-}
-.form__input {
+.form__input, .form__select {
   background-color: white;
   border-radius: 12px;
-  border: 1px solid gray;
+  border: none;
   box-sizing: border-box;
-  color: #f00;
-  font-size: 18px;
-  height: 100%;
-  outline: 0;
-  height: 44px;
+  color: var(--cinza--escuro);
+  font-size: 14px;
+  height: 48px;
   padding: 4px 20px 0;
   width: 100%;
+  outline: 1px solid var(--cinza--claro);
+  transition: .5s;
+}
+.form__select {
+  appearance: none;
+  cursor: pointer;
+}
+.form__select--1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.form__select--1::after {
+  content: '';
+  background-image: url('https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0bc96ced-05d8-4dca-9ac2-24f370718e9c.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  color: rgb(158, 158, 158);
+  width: 12px;
+  height: 12px;
+  right: 24px;
+  top: 18px;
+  z-index: 2;
 }
 .form__cut {
   background-color: white;
   border-radius: 6px;
-  height: 20px;
-  left: 20px;
+  height: 10px;
+  left: 14px;
   position: absolute;
-  top: -20px;
+  top: -12px;
   transform: translateY(0);
   transition: transform 200ms;
   width: 76px;
@@ -238,26 +321,33 @@ button {
 .form__input:not(:placeholder-shown) ~ .form__cut {
   transform: translateY(8px);
 }
+.form__select:valid ~ .form__cut {
+  transform: translateY(8px);
+}
 .form__placeholder {
   color: gray;
   font-family: sans-serif;
-  left: 20px;
   line-height: 14px;
   pointer-events: none;
   position: absolute;
   transform-origin: 0 50%;
   transition: transform 200ms, color 200ms;
-  top: 15px;
+  left: 20px;
+  top: 17px;
 }
 .form__input:focus ~ .form__placeholder,
 .form__input:not(:placeholder-shown) ~ .form__placeholder {
-  transform: translateY(-30px) translateX(10px) scale(0.75);
+  transform: translateY(-22px) translateX(-2px) scale(0.75);
+}
+.form__select:valid ~ .form__placeholder {
+  transform: translateY(-22px) translateX(-2px) scale(0.75);
 }
 .form__input:not(:placeholder-shown) ~ .form__placeholder {
   color: gray;
 }
-.form__input:focus ~ .form__placeholder {
-  color: #f00;
+.form__input:focus{
+  outline: 1px solid black;
+  transition: .5s;
 }
 .form__submit {
   background-color: var(--red);
@@ -266,16 +356,16 @@ button {
   box-sizing: border-box;
   color: #eee;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   height: 50px;
-  margin-top: 28px;
+  margin-top: 4px;
   text-align: center;
   width: 100%;
   transition: .2s;
 }
 .form__submit:active {
   transition: .2s;
-  background-color: var(--red--dark);
+  background-color: #74031C;
 }
 .form__disclamer {
   font-size: 10px;
@@ -283,6 +373,139 @@ button {
   text-align: center;
   margin-top: 4px;
 }
+.input--1 .form__cut {
+  width: 122px;
+}
+.input--2 .form__cut {
+  width: 128px;
+}
+.form__input--3 .form__cut {
+  width: 214px;
+}
+.form__input--4 .form__cut {
+  width: 150px;
+}
+.form__input--5 .form__cut {
+  width: 226px;
+}
+/* Select */
+.form__select--1 .form__cut {
+  width: 198px;
+}
+.form__select--2 .form__cut {
+  width: 128px;
+}
+.form__select--3 .form__cut {
+  width: 168px;
+}
+.form__select--1 .form__placeholder {
+  top: 18px;
+}
+/*  */
+.form__error {
+  position: relative;
+  display: block;
+  color: var(--roxo);
+  font-size: 12px;
+  margin-top: 8px;
+  z-index: 2;
+} 
+.form__error-err .form__input, .form__error-err .form__select {
+  outline: 1px solid var(--roxo);
+}
+.form__error-err .form__placeholder {
+  color: var(--roxo);
+}
+/* guia ↓ */
+.guia {
+  padding: 80px 0;
+}
+.guia .max__width {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.guia__title {
+  margin: auto;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 120%;
+  max-width: 760px;
+  margin-bottom: 44px;
+  text-align: center;
+  color: var(--orange);
+}
+.guia__card {
+  display: flex;
+  align-items: center;
+  background: #FFAB66;
+  color: #7A2818;
+  padding: 36px;
+  border-radius: 12px;
+  gap: 12px;
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+.guia__card img {
+  object-fit: cover;
+}
+
+.guia .button__red {
+  margin: auto;
+  margin-top: 50px;
+}
+/* Proteja ↓ */
+.proteja {
+  background: var(--orange);
+  padding: 80px 0;
+}
+.proteja .max__width {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.proteja__title {
+  line-height: 28px;
+  color: white;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.proteja__strong {
+  font-size: 20px;
+}
+.proteja__description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+.proteja__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+.projeta__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 28px;
+  background: white;
+  padding: 30px;
+}
+.projeta__img {
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.proteja .button__white {
+  margin-top: 60px;
+}
+
 /* Rodape ↓ */
 .rodape {
   display: flex;
@@ -403,12 +626,148 @@ footer {
   padding-top: 4vh;
 }
 /* FOOTER ↑ */
+
+@media screen and (max-width: 1000px) {
+  .proteja__grid, .guia .max__width, .banner__grid, .cartao {
+    display: flex;
+    flex-direction: column;
+  }
+  .max__width {
+    width: calc(100% - 40px);
+  }
+  .banner__grid {
+    width: initial;
+    gap: 28px;
+  }
+  .form__grafismo {
+    display: none;
+  }
+  /* Banner ↓ */
+  .banner__header {
+    margin-bottom: 28px;
+  }
+  .banner__ctn {
+    gap: 20px;
+  }
+  .banner__description {
+    font-size: 16px;
+  }
+  .banner__title {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 110%;
+    letter-spacing: 0%;
+  }
+  .banner__title {
+    font-size: 28px;
+  }
+  .banner__col--1 {
+    gap: 24px;
+  }
+  .form {
+    width: 100%;
+    padding: 26px;
+  }
+  /* Counter ↓ */
+  .counter__dots {
+    padding: 0 2px;
+  }
+  .counter__span {
+    font-size: 36px;
+  }
+  /* proteja ↓ */
+  .proteja {
+    padding: 24px 0;
+  }
+  .proteja__grid {
+    gap: 20px;
+  }
+  .proteja__title {
+    margin-bottom: 30px;
+  }
+  .proteja .button__white {
+    margin-top: 36px;
+    margin-bottom: 14px;
+  }
+  /* Guia ↓ */
+  .guia__title, .proteja__title {
+    text-align: start;
+    font-size: 32px;
+  }
+  .guia {
+    padding: 24px 0;
+  }
+  .guia__title {
+    margin-bottom: 20px;
+  }
+  .guia .button__red{
+    margin-top: 24px;
+    margin-bottom: 14px;
+  }
+  .guia .max__width {
+    gap: 10px;
+  }
+  /* Cartao ↓ */
+  .cartao {
+    gap: 40px;
+    margin: 34px 0;
+  }
+  .cartao__ctn {
+    padding: 0;
+  }
+  .cartao__img  {
+    max-width: 400px;
+  }
+  /* Footer ↓ */
+  footer * {
+    text-align: center !important;
+  }
+  footer {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+  }
+  .footer__redes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .footer__logo {
+    object-position: center;
+  }
+  .footer__icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .footer__container, .footer__termos {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .counter__span {
+    font-size: 28px;
+  }
+  .counter__ul li {
+    padding: 4px;
+  }
+  .counter__display {
+    font-size: 14px;
+  }
+  .counter__dots {
+    font-size: 34px;
+    padding-top: 4px;
+  }
+}
 </style>
-<link rel="stylesheet" href="counter.css">
 </head>
+
 <body>
-  
-  <section class="banner">
+  <section class="banner" id="banner">
     <div class="max__width">
       <div class="banner__container">
         <div class="banner__header">
@@ -419,22 +778,22 @@ footer {
         <div class="banner__col--1">
           <button class="button__red--dark">E-book gratuito</button>
 
-          <div class="banner__contador">
-            <p class="banner__p">O tempo está passando, não deixe para a última hora!</p>
+          <div class="counter__contador">
+            <p class="counter__p">O tempo está passando, não deixe para a última hora!</p>
 
             <div class="counter__container">
               <div id="countdown">
-                <ul>
-                  <li><span id="days"></span><p class="counter__display">Dias</p></li>
+                <ul class="counter__ul">
+                  <li><span class="counter__span" id="days"></span><p class="counter__display">Dias</p></li>
                   <p class="counter__dots">:</p>
-                  <li><span id="hours"></span><p class="counter__display">Horas</p></li>
+                  <li><span class="counter__span" id="hours"></span><p class="counter__display">Horas</p></li>
                   <p class="counter__dots">:</p>
-                  <li><span id="minutes"></span><p class="counter__display">Minutos</p></li>
+                  <li><span class="counter__span" id="minutes"></span><p class="counter__display">Minutos</p></li>
                   <p class="counter__dots">:</p>
-                  <li><span id="seconds"></span><p class="counter__display">Segundos</p></li>
+                  <li><span class="counter__span" id="seconds"></span><p class="counter__display">Segundos</p></li>
                 </ul>
               </div>
-              <div id="content" class="emoji">
+              <div id="content" class="counter__emoji">
                 <span>🥳</span>
                 <span>🎉</span>
                 <span>🎂</span>
@@ -444,44 +803,86 @@ footer {
 
           </div>
 
-          <p class="banner__title">Garanta a conformidade da sua empresa com a <strong>NR-1 e proteja seus colaboradores!</strong></p>
-          <p class="banner__description">Baixe agora o <strong>Guia Prático para RH e DP</strong> e receba um checklist exclusivo para cumprir as exigências da NR-1 com facilidade!</p>
+          <div class="banner__ctn">
+            <p class="banner__title">Garanta a conformidade da sua empresa com a <strong>NR-1 e proteja seus colaboradores!</strong></p>
+            <p class="banner__description">Baixe agora o <strong>Guia Prático para RH e DP</strong> e receba um checklist exclusivo para cumprir as exigências da NR-1 com facilidade!</p>
+          </div>
         </div>
 
         <div class="banner__col--2">
           <img class="form__grafismo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/65f00ef3-f7be-46b5-b263-41a75a9bb594.png" alt="">
           <div class="form">
-            <div class="form__title">Welcome</div>
-            <div class="form__subtitle">Let's create your account!</div>
-            <div class="form__input-container form__ic1">
-              <input id="firstname" class="form__input" type="text" placeholder=" " />
-              <div class="form__cut"></div>
-              <label for="firstname" class="form__placeholder">Digite aqui seu nome*</label>
-            </div>
-            <div class="form__input-container form__ic1">
-              <input id="lastname" class="form__input" type="text" placeholder=" " />
-              <div class="form__cut"></div>
-              <label for="lastname" class="form__placeholder">Digite aqui o e-mail corporativo*</label>
-            </div>
-            <div class="form__input-container form__ic1">
-              <input id="email" class="form__input" type="text" placeholder=" " />
-              <div class="form__cut form__cut-short"></div>
-              <label for="email" class="form__placeholder">Digite aqui o telefone*</label>
-            </div>
-            <div class="form__input-container form__ic1">
-              <input id="email" class="form__input" type="text" placeholder=" " />
-              <div class="form__cut form__cut-short"></div>
-              <label for="email" class="form__placeholder">Selecione a área que você trabalha*</label>
-            </div>
-            <div class="form__input-container form__ic1">
-              <input id="email" class="form__input" type="text" placeholder=" " />
-              <div class="form__cut form__cut-short"></div>
-              <label for="email" class="form__placeholder">Digite aqui o nome da empresa*</label>
-            </div>
-            <div class="form__input-container form__ic1">
-              <input id="email" class="form__input" type="text" placeholder=" " />
-              <div class="form__cut form__cut-short"></div>
-              <label for="email" class="form__placeholder">Digite o número de colaboradores*</label>
+            <p class="form__title">Baixe o material!</p>
+            <div class="form__ctn">
+        
+                <div class="form__inputCtn input--1">
+                  <input id="valName" class="form__input" type="text" placeholder="" />
+                  <div class="form__cut"></div>
+                  <label for="valName" class="form__placeholder">Digite aqui seu nome</label>
+                </div>
+        
+                <div class="form__inputCtn input--2">
+                  <input id="valEmail" class="form__input" type="text" placeholder="" />
+                  <div class="form__cut"></div>
+                  <label for="valEmail" class="form__placeholder">Digite aqui seu e-mail</label>
+                </div>
+        
+                <div class="form__inputCtn form__select--1">
+                  <select id="valTrabalho" class="form__select" name="" required>
+                    <option value="" selected disabled></option> <!-- Opção vazia -->
+                    <option value="socio">Sócio / Diretor</option>
+                    <option value="gerente">Gerente / Coordenador(a)</option>
+                    <option value="analista">Analista</option>
+                    <option value="assistem">Assistente</option>
+                    <option value="estagiarios">Estagiário</option>
+                    <option value="outros">Outros</option>
+                  </select>
+                  <div class="form__cut"></div>
+                  <label for="valTrabalho" class="form__placeholder">Selecione a área que você trabalha</label>
+                </div>
+        
+                <div class="form__inputCtn form__select--2">
+                  <select id="valCargo" class="form__select" name="" required>
+                    <option value="" selected disabled></option> <!-- Opção vazia -->
+                    <option value="socio">Estagiário</option>
+                    <option value="socio">Junior</option>
+                    <option value="socio">Pleno</option>
+                    <option value="socio">Senior</option>
+                  </select>
+                  <div class="form__cut"></div>
+                  <label for="valCargo" class="form__placeholder">Selecione o seu cargo</label>
+                </div>
+              
+                <div class="form__inputCtn form__input--3">
+                  <input id="valNumero" class="form__input" type="text" placeholder="" />
+                  <div class="form__cut form__cut-short"></div>
+                  <label for="valNumero" class="form__placeholder">Digite aqui o seu número para contato</label>
+                </div>
+        
+                <div class="form__inputCtn form__input--4">
+                  <input id="valEmpresa" class="form__input" type="text" placeholder="" />
+                  <div class="form__cut form__cut-short"></div>
+                  <label for="valEmpresa" class="form__placeholder">Digite aqui a sua empresa</label>
+                </div>
+        
+                <div class="form__inputCtn form__input--5">
+                  <input id="valFuncionarios" class="form__input" type="number" placeholder="" />
+                  <div class="form__cut form__cut-short"></div>
+                  <label for="valFuncionarios" class="form__placeholder">Quantos funcionários tem sua empresa?</label>
+                </div>
+        
+                <div class="form__inputCtn form__select--3">
+                  <select id="valDesafio" class="form__select" name="" required>
+                    <option value="" selected disabled></option> <!-- Opção vazia -->
+                    <option value="socio">Estagiário</option>
+                    <option value="socio">Junior</option>
+                    <option value="socio">Pleno</option>
+                    <option value="socio">Senior</option>
+                  </select>
+                  <div class="form__cut"></div>
+                  <label for="valDesafio" class="form__placeholder">Selecione o seu maior desafio</label>
+                </div>
+        
             </div>
             <button type="text" class="form__submit">Baixar material</button>
             <p class="form__disclamer">Ao continuar, esteja ciente da política de privacidade da Caju.</p>
@@ -495,8 +896,60 @@ footer {
     </div>
   </section>
   
-  <section class="rodape">
+  <section class="guia">
+    <div class="max__width">
+      <p class="guia__title">O que você vai encontrar no Guia Prático da NR-1 para RH e DP?</p>
+      <div class="guia__card">
+        <img src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/53b34978-f57b-436c-9a2c-3398f9ab3a63.png" width="40" height="40" alt="">
+        <p>Tudo sobre a NR-1 e suas principais diretrizes</p>
+      </div>
+      <div class="guia__card">
+        <img src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/ee1f5648-af3c-4d93-a4f2-0d1c83f37ce7.png" width="40" height="40" alt="">
+        <p>O papel estratégico do RH e DP na gestão de riscos ocupacionais</p>
+      </div>
+      <div class="guia__card">
+        <img src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/b1ede29a-07ee-498c-a058-b65351fc2abb.png" width="40" height="40" alt="">
+        <p>Impactos das atualizações para 2025 e como se preparar </p>
+      </div>
+      <div class="guia__card">
+        <img src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/fc3435e6-a100-4e5a-bdf5-c538f923130d.png" width="40" height="40" alt="">
+        <p>Checklist exclusivo para garantir conformidade e evitar multas</p>
+      </div>
+      <div class="guia__card">
+        <img src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/187ef19b-3c04-4274-9668-9effae302341.png" width="40" height="40" alt="">
+        <p>Dicas práticas para implementar um Programa de Gerenciamento de Riscos (PGR) eficiente</p>
+      </div>
+      <a href="#banner" class="button__red">Acesse o material gratuitamente</a>
+    </div>
+  </section>
 
+  <section class="proteja">
+    <div class="max__width">
+      <p class="proteja__title">A conformidade com a NR-1 não é opcional: proteja sua empresa de riscos financeiros e legais!</p>
+
+      <div class="proteja__grid">
+        <div class="projeta__card">
+          <img class="projeta__img" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/004be276-32d2-43bc-8e48-98edcfa73387.png" width="72" height="72" alt="">
+          <p class="proteja__strong"><strong>Multas e penalidades</strong></p>
+          <p class="proteja__description">O descumprimento da NR-1 pode gerar multas superiores a R$ 6 mil.</p>
+        </div>
+        <div class="projeta__card">
+          <img class="projeta__img" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/59683aad-1282-4cd6-a3dd-525fbf306afc.png" width="72" height="72" alt="">
+          <p class="proteja__strong"><strong>Risco de acidentes</strong></p>
+          <p class="proteja__description">Sem um bom gerenciamento de riscos, a empresa fica vulnerável a incidentes que afetam a integridade dos colaboradores.</p>
+        </div>
+        <div class="projeta__card">
+          <img class="projeta__img" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/a8a1dd1e-5cd5-42a2-88a0-2cb6d1c54f4b.png" width="72" height="72" alt="">
+          <p class="proteja__strong"><strong>Prejuízos jurídicos</strong></p>
+          <p class="proteja__description">Processos trabalhistas e indenizações por falta de conformidade podem gerar impactos financeiros e prejudicar a reputação da empresa.</p>
+        </div>
+      </div>
+
+      <a href="#banner" class="button__white">Acesse o material gratuitamente</a>
+    </div>
+  </section>
+
+  <section class="rodape">
     <div class="cartao max__width">
 
       <div class="cartao__ctn"><img class="cartao__img" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/d604ce69-c393-4260-9d85-63b6754ab246.png" alt=""></div>
@@ -507,7 +960,7 @@ footer {
           <p>Somos uma empresa de tecnologia que <strong>oferece benefícios e soluções para RHs</strong>, empregadores e gestores evoluírem a experiência, gestão e cuidado com suas operações e colaboradores.</p>
           <p>Oferecemos <strong>cartão multibenefícios</strong> que concentra diferentes modalidades de benefícios em um único cartão e app para o colaborador, <strong>solução em despesas corporativas</strong> para fluxo de adiantamentos mais ágeis, gestão de gastos e viagens corporativas.</p>
           <p>Além disso, temos uma <strong>solução integrada de premiações</strong> para incentivos, eventos ou para presentear colaboradores em ocasiões especiais via cartão Caju e a nossa plataforma <strong>Caju Ciclos</strong>, para admissão digital e gestão de dados.</p>
-          <button class="button__white">Saiba mais</button>
+          <a href="#banner" class="button__white">Saiba mais</a>
         
         </div>
       </div>
@@ -561,10 +1014,122 @@ footer {
 
 </body>
 
+<script>
+/* Scripts do formulário */
+const valName = (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/[^a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]/g, '')
+}
+const valFuncionarios = (e) => {
+  let val = e.currentTarget.value.replace(/\D/g, '') // Remove tudo que não for número
+  val = val.replace(/\B(?=(\d{3})+(?!\d))/g, '.') // Adiciona pontos a cada três dígitos
+  e.currentTarget.value = val.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+}
+
+const valNumero = (e) => {
+  let val = e.currentTarget.value.replace(/\D/g, ''); 
+  if (val.length > 11) val = val.slice(0, 11); // Limita a 11 dígitos (formato máximo)
+  let formatado = '';
+  if (val.length > 0) formatado += `(${val.slice(0, 2)}`; // Adiciona o DDD
+  if (val.length >= 3) formatado += `) ${val.slice(2, 7)}`; // Adiciona a primeira parte
+  if (val.length >= 8) formatado += `-${val.slice(7, 11)}`; // Adiciona a segunda parte
+
+  e.currentTarget.value = formatado;
+}
+
+const funcDOMContentLoaded = (e) => {
+  const inputs = document.querySelectorAll(".form__input, .form__select");
+
+  inputs.forEach(input => { // Criar elementos de erro para cada campo
+    
+    const errorElement = document.createElement("p");
+    errorElement.classList.add("form__error");
+    errorElement.style.display = "none";
+    input.parentElement.appendChild(errorElement);
+  });
+
+  const submitButton = document.querySelector(".form__submit")
+  submitButton.addEventListener("click", (event) => {
+    let isValid = true;
+
+    inputs.forEach(input => {
+      
+      const errorElement = input.parentElement.querySelector(".form__error");
+      errorElement.style.display = "none";
+      errorElement.textContent = "";
+        
+      const container = input.closest(".form__inputCtn");
+      console.log('container', container);
+
+
+      if (input.id === "valName" && input.value == '') {
+        container.classList.add('form__error-err')
+        errorElement.textContent = "* Nome é obrigatório";
+        errorElement.style.display = "block";
+        isValid = false;
+      } else if (input.id === "valEmail" && !validateEmail(input.value)) { // input
+        container.classList.add('form__error-err')
+        errorElement.textContent = "* Nome é obrigatório";
+        errorElement.style.display = "block";
+        isValid = false;
+      } else if (input.id === "valTrabalho" && input.value == '') { // Seletor
+        container.classList.add('form__error-err')
+        errorElement.textContent = "* Seu cargo é obrigatório";
+        errorElement.style.display = "block";
+        isValid = false;
+      } else if (input.id === "valCargo"  && input.value == '') { // Seletor
+        container.classList.add('form__error-err')
+        errorElement.textContent = "* Nome é obrigatório";
+        errorElement.style.display = "block";
+        isValid = false;
+      } else if (input.id === "valNumero" && validateTelefone(input.value)) { // input
+        container.classList.add('form__error-err')
+        errorElement.textContent = "* Nome é obrigatório";
+        errorElement.style.display = "block";
+        isValid = false;
+      } else if (input.id === "valEmpresa" && input.value == '') { // input
+        container.classList.add('form__error-err')
+        errorElement.textContent = "* Nome é obrigatório";
+        errorElement.style.display = "block";
+        isValid = false;
+      } else if (input.id === "valFuncionarios" && input.value == '') { // input
+        container.classList.add('form__error-err')
+        errorElement.textContent = "* Nome é obrigatório";
+        errorElement.style.display = "block";
+        isValid = false;
+      } else if (input.id === "valDesafio" && input.value == '') { // Seletor
+        container.classList.add('form__error-err')
+        errorElement.textContent = "* Seu cargo é obrigatório";
+        errorElement.style.display = "block";
+        isValid = false;
+      }
+
+      input.addEventListener('click', () => {
+        container.classList.remove('form__error-err')
+        errorElement.style.display = 'none'
+      }) // Remove o erro ao clicar novamente no input
+
+    });
+
+    if (!isValid) event.preventDefault();
+  });
+}
+
+const validateTelefone = (telefone) => {
+  return !(telefone.replace(/\D/g, '').length == 11)
+}
+
+const validateEmail = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+document.getElementById("valName").addEventListener("input", valName);
+document.getElementById("valFuncionarios").addEventListener("input", valFuncionarios);
+document.getElementById("valNumero").addEventListener("input", valNumero);
+document.addEventListener("DOMContentLoaded", funcDOMContentLoaded);
+</script>
 
 <script>
-
-
+/* Scripts do counter */
 const second = 1000,
       minute = second * 60,
       hour = minute * 60,
