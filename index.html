@@ -108,129 +108,7 @@ button, .button__red, .button__white {
 /* Estilos Globais ↑ */
 </style>
 <style>
-/* Banner ↓ */
-.banner {
-  position: relative;
-  display: flex;
-  gap: 40px;
-  min-height: 600px;
-  background: var(--orange);
-}
-.banner .max__width {
-  position: relative;
-  display: flex;
-  gap: 40px;
-  padding: 24px 0 40px 0;
-  margin: auto;
-  min-height: 600px;
-  background: var(--orange);
-}
-.banner__container {
-  position: relative;
-  display: flex;  
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  z-index: 3;
-}
-.banner__ctn {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.banner__header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 74px;
-  width: 100%;
-  margin-bottom: 40px;
-  background: white;
-  z-index: 2;
-  border-radius: 20px;
-}
-.banner__logo {
-  object-fit: contain;
-}
-.banner__grid {
-  display: grid;
-  grid-template-columns: 1fr max-content;
-  gap: 100px;
-  width: calc(100% - 200px);
-}
-.banner__col--1 {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-.banner__title {
-  font-size: 56px;
-  line-height: 110%;
-  letter-spacing: 0%;
-  color: #FFFFFF;
-}
-.banner__col--2 {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.banner__description {
-  color: white;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 130%;
-}
-/* Counter ↓ */
-  
-.counter__contador {
-  border-radius: 18px;
-  padding: 32px 20px 24px 20px;
-  background: #FFAB66;
-}
-.counter__container {
-  color: #333;
-  margin: 0 auto;
-  text-align: center;
-}
-.counter__p {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 160%;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-  text-wrap: wrap;
-  white-space: wrap;
-  color: var(--red--dark);
-}
-.counter__ul {
-  display: flex;
-  justify-content: center;
-}
-.counter__ul li, .counter__dots {
-  display: inline-block;
-  font-size: 54px;
-  padding: 10px;
-  color: #74031C;
-  font-weight: 900;
-}
-.counter__span {
-  display: block;
-  font-size: 54px;
-}
-.counter__display {
-  font-weight: initial;
-  font-size: 16px;
-}
-.counter__emoji {
-  display: none;
-  padding: 1rem;
-}
-.counter__emoji span {
-  font-size: 4rem;
-  padding: 0 .5rem;
-}
-/* Formulário ↓ */
+  /* Formulário ↓ */
 .form {
   display: flex;
   flex-direction: column;
@@ -268,7 +146,7 @@ button, .button__red, .button__white {
   width: 100%;
 }
 .form__input, .form__select {
-  background-color: white;
+  background: white;
   border-radius: 12px;
   border: none;
   box-sizing: border-box;
@@ -283,6 +161,15 @@ button, .button__red, .button__white {
 .form__select {
   appearance: none;
   cursor: pointer;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
 }
 .form__select--1 {
   position: relative;
@@ -416,6 +303,188 @@ button, .button__red, .button__white {
 .form__error-err .form__placeholder {
   color: var(--roxo);
 }
+.form__input--telefone {
+  display: flex;
+  position: relative;
+}
+/* Checkboxs */
+.form__checkbox {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+}
+.form__check--title {
+  font-weight: 600;
+  color: rgba(145, 145, 145, 1);
+}
+input[type="radio"] {
+  display: none;
+}
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: rgba(145, 145, 145, 1);
+}
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cinza--claro);
+  border-radius: 6px;
+  margin-right: 4px;
+  position: relative;
+  transition: all .2s ease-in-out;
+}
+input[type="radio"]:checked + .radio-custom::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--red);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+input[type="radio"]:checked ~ .radio-custom {
+  border-color: var(--red);
+}
+.radio-label:hover .radio-custom {
+  border-color: var(--red);
+}
+@media screen and(max-width: 400px) {
+  .form__input {
+    font-size: 14px;
+  }
+}
+</style>
+
+<style>
+/* Banner ↓ */
+.banner {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  min-height: 600px;
+  background: var(--orange);
+}
+.banner .max__width {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  padding: 24px 0 40px 0;
+  margin: auto;
+  min-height: 600px;
+  background: var(--orange);
+}
+.banner__container {
+  position: relative;
+  display: flex;  
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  z-index: 3;
+}
+.banner__ctn {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.banner__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 74px;
+  width: 100%;
+  margin-bottom: 40px;
+  background: white;
+  z-index: 2;
+  border-radius: 20px;
+}
+.banner__logo {
+  object-fit: contain;
+}
+.banner__grid {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: 100px;
+  width: calc(100% - 200px);
+}
+.banner__col--1 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.banner__title {
+  font-size: 56px;
+  line-height: 110%;
+  letter-spacing: 0%;
+  color: #FFFFFF;
+}
+.banner__col--2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.banner__description {
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 130%;
+}
+/* Counter ↓ */
+  
+.counter__contador {
+  border-radius: 18px;
+  padding: 32px 20px 24px 20px;
+  background: #FFAB66;
+}
+.counter__container {
+  color: #333;
+  margin: 0 auto;
+  text-align: center;
+}
+.counter__p {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  text-wrap: wrap;
+  white-space: wrap;
+  color: var(--red--dark);
+}
+.counter__ul {
+  display: flex;
+  justify-content: center;
+}
+.counter__ul li, .counter__dots {
+  display: inline-block;
+  font-size: 54px;
+  padding: 10px;
+  color: #74031C;
+  font-weight: 900;
+}
+.counter__span {
+  display: block;
+  font-size: 54px;
+}
+.counter__display {
+  font-weight: initial;
+  font-size: 16px;
+}
+.counter__emoji {
+  display: none;
+  padding: 1rem;
+}
+.counter__emoji span {
+  font-size: 4rem;
+  padding: 0 .5rem;
+}
+/* Formulário ↓ */
+
 /* guia ↓ */
 .guia {
   padding: 80px 0;
@@ -628,6 +697,11 @@ footer {
 /* FOOTER ↑ */
 
 @media screen and (max-width: 1000px) {
+  /*  */
+  .form {
+    width: 100%;
+  }
+  /*  */
   .proteja__grid, .guia .max__width, .banner__grid, .cartao {
     display: flex;
     flex-direction: column;
@@ -638,9 +712,6 @@ footer {
   .banner__grid {
     width: initial;
     gap: 28px;
-  }
-  .form__grafismo {
-    display: none;
   }
   /* Banner ↓ */
   .banner__header {
@@ -663,10 +734,6 @@ footer {
   }
   .banner__col--1 {
     gap: 24px;
-  }
-  .form {
-    width: 100%;
-    padding: 26px;
   }
   /* Counter ↓ */
   .counter__dots {
@@ -811,6 +878,8 @@ footer {
 
         <div class="banner__col--2">
           <img class="form__grafismo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/65f00ef3-f7be-46b5-b263-41a75a9bb594.png" alt="">
+          
+          
           <div class="form">
             <p class="form__title">Baixe o material!</p>
             <div class="form__ctn">
@@ -884,9 +953,31 @@ footer {
                 </div>
         
             </div>
+        
+            <div class="form__checkbox">
+              <p class="form__check--title">Você já é cliente Caju?</p>
+              
+              <div style="display: flex; gap: 9px;">
+                <label class="radio-label">
+                  <input type="radio" name="option" value="1">
+                  <span class="radio-custom"></span>
+                  Sim
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="option" value="2">
+                  <span class="radio-custom"></span>
+                  Não
+                </label>
+              </div>
+        
+              
+            </div>
+        
             <button type="text" class="form__submit">Baixar material</button>
             <p class="form__disclamer">Ao continuar, esteja ciente da política de privacidade da Caju.</p>
           </div>
+
+
         </div>
       </div>
 
@@ -1015,30 +1106,26 @@ footer {
 </body>
 
 <script>
-/* Scripts do formulário */
-const valName = (e) => {
-  e.currentTarget.value = e.currentTarget.value.replace(/[^a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]/g, '')
-}
-const valFuncionarios = (e) => {
-  let val = e.currentTarget.value.replace(/\D/g, '') // Remove tudo que não for número
-  val = val.replace(/\B(?=(\d{3})+(?!\d))/g, '.') // Adiciona pontos a cada três dígitos
-  e.currentTarget.value = val.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-}
-
-const valNumero = (e) => {
-  let val = e.currentTarget.value.replace(/\D/g, ''); 
-  if (val.length > 11) val = val.slice(0, 11); // Limita a 11 dígitos (formato máximo)
-  let formatado = '';
-  if (val.length > 0) formatado += `(${val.slice(0, 2)}`; // Adiciona o DDD
-  if (val.length >= 3) formatado += `) ${val.slice(2, 7)}`; // Adiciona a primeira parte
-  if (val.length >= 8) formatado += `-${val.slice(7, 11)}`; // Adiciona a segunda parte
-
-  e.currentTarget.value = formatado;
-}
-
-const funcDOMContentLoaded = (e) => {
+  /* Scripts do formulário */
+  const valName = (e) => {
+    e.currentTarget.value = e.currentTarget.value.replace(/[^a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]/g, '')
+  }
+  const valFuncionarios = (e) => {
+    e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '') // Remove tudo que não for número
+  }
+  
+  const valNumero = (e) => {
+    let val = e.currentTarget.value.replace(/\D/g, ''); 
+    if (val.length > 11) val = val.slice(0, 11); // Limita a 11 dígitos (formato máximo)
+    let formatado = '';
+    if (val.length > 0) formatado += `(${val.slice(0, 2)}`; // Adiciona o DDD
+    if (val.length >= 3) formatado += `) ${val.slice(2, 7)}`; // Adiciona a primeira parte
+    if (val.length >= 8) formatado += `-${val.slice(7, 11)}`; // Adiciona a segunda parte
+  
+    e.currentTarget.value = formatado;
+  }
+  
   const inputs = document.querySelectorAll(".form__input, .form__select");
-
   inputs.forEach(input => { // Criar elementos de erro para cada campo
     
     const errorElement = document.createElement("p");
@@ -1046,37 +1133,45 @@ const funcDOMContentLoaded = (e) => {
     errorElement.style.display = "none";
     input.parentElement.appendChild(errorElement);
   });
-
-  const submitButton = document.querySelector(".form__submit")
-  submitButton.addEventListener("click", (event) => {
-    let isValid = true;
-
-    inputs.forEach(input => {
-      
-      const errorElement = input.parentElement.querySelector(".form__error");
-      errorElement.style.display = "none";
-      errorElement.textContent = "";
+  
+  const funcDOMContentLoaded = (e) => {
+    
+    const submitButton = document.querySelector(".form__submit")
+    submitButton.addEventListener("click", (event) => {
+  
+      inputs.forEach(input => {
         
-      const container = input.closest(".form__inputCtn");
-      console.log('container', container);
-
-
-      if (input.id === "valName" && input.value == '') {
-        container.classList.add('form__error-err')
-        errorElement.textContent = "* Nome é obrigatório";
-        errorElement.style.display = "block";
-        isValid = false;
-      } else if (input.id === "valEmail" && !validateEmail(input.value)) { // input
-        container.classList.add('form__error-err')
-        errorElement.textContent = "* Nome é obrigatório";
-        errorElement.style.display = "block";
-        isValid = false;
-      } else if (input.id === "valTrabalho" && input.value == '') { // Seletor
-        container.classList.add('form__error-err')
-        errorElement.textContent = "* Seu cargo é obrigatório";
-        errorElement.style.display = "block";
-        isValid = false;
-      } else if (input.id === "valCargo"  && input.value == '') { // Seletor
+        const errorElement = input.parentElement.querySelector(".form__error");
+        errorElement.style.display = "none";
+        errorElement.textContent = "";
+        const container = input.closest(".form__inputCtn");
+        
+        validadorInputs(input, container, errorElement)
+  
+        input.addEventListener('click', () => {
+          container.classList.remove('form__error-err')
+          errorElement.style.display = 'none'
+        }) // Remove o erro ao clicar novamente no input
+  
+      });
+  
+    });
+  }
+  
+  const message = {
+    ['valName']: "* Nome é obrigatório",
+    ['valEmail']: "* Nome é obrigatório",
+    ['valTrabalho']: "* Seu cargo é obrigatório",
+    ['valCargo']: "* Nome é obrigatório",
+    ['valNumero']: "* Nome é obrigatório",
+    ['valEmpresa']: "* Nome é obrigatório",
+    ['valFuncionarios']: "* Nome é obrigatório",
+    ['valDesafio']: "* Seu cargo é obrigatório",
+  }
+  
+  const validadorInputs = (input, container, errorElement) => {
+    let isValid = true
+      if (input.id === "valEmail" && !validateEmail(input.value)) { // input
         container.classList.add('form__error-err')
         errorElement.textContent = "* Nome é obrigatório";
         errorElement.style.display = "block";
@@ -1086,47 +1181,47 @@ const funcDOMContentLoaded = (e) => {
         errorElement.textContent = "* Nome é obrigatório";
         errorElement.style.display = "block";
         isValid = false;
-      } else if (input.id === "valEmpresa" && input.value == '') { // input
+      } else if (input.value == '') { // Seletor
         container.classList.add('form__error-err')
-        errorElement.textContent = "* Nome é obrigatório";
-        errorElement.style.display = "block";
-        isValid = false;
-      } else if (input.id === "valFuncionarios" && input.value == '') { // input
-        container.classList.add('form__error-err')
-        errorElement.textContent = "* Nome é obrigatório";
-        errorElement.style.display = "block";
-        isValid = false;
-      } else if (input.id === "valDesafio" && input.value == '') { // Seletor
-        container.classList.add('form__error-err')
-        errorElement.textContent = "* Seu cargo é obrigatório";
+        errorElement.textContent = message[input.id];
         errorElement.style.display = "block";
         isValid = false;
       }
-
-      input.addEventListener('click', () => {
-        container.classList.remove('form__error-err')
-        errorElement.style.display = 'none'
-      }) // Remove o erro ao clicar novamente no input
-
-    });
-
-    if (!isValid) event.preventDefault();
-  });
-}
-
-const validateTelefone = (telefone) => {
-  return !(telefone.replace(/\D/g, '').length == 11)
-}
-
-const validateEmail = (email) => {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-document.getElementById("valName").addEventListener("input", valName);
-document.getElementById("valFuncionarios").addEventListener("input", valFuncionarios);
-document.getElementById("valNumero").addEventListener("input", valNumero);
-document.addEventListener("DOMContentLoaded", funcDOMContentLoaded);
-</script>
+  
+      if (!isValid) event.preventDefault();
+  }
+  
+  const validateTelefone = (telefone) => {
+    return !(telefone.replace(/\D/g, '').length == 11)
+  }
+  
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+  
+  document.getElementById("valName").addEventListener("input", valName);
+  document.getElementById("valFuncionarios").addEventListener("input", valFuncionarios);
+  document.getElementById("valNumero").addEventListener("input", valNumero);
+  document.addEventListener("DOMContentLoaded", funcDOMContentLoaded);
+  
+  const inputsxxx = document.querySelectorAll(".form__input, .form__select");
+  inputsxxx.forEach(obj => {
+    console.log('obj', obj.parentElement.querySelector(".form__error"));
+    const element = obj.value
+    const errorElement = obj.parentElement.querySelector(".form__error")
+    const container = obj.closest(".form__inputCtn")
+    
+    obj.addEventListener('blur', (elem) => {
+      validadorInputs(obj, container, errorElement)
+    })
+  
+    obj.addEventListener('click', (elem) => {
+      container.classList.remove('form__error-err')
+      errorElement.style.display = 'none'
+    })
+  })
+  
+  </script>
 
 <script>
 /* Scripts do counter */
