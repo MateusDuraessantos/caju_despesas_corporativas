@@ -109,255 +109,145 @@ button, .button__red, .button__white {
 </style>
 <style>
   /* Formulário ↓ */
-.form {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  box-sizing: border-box;
-  border: 1px solid var(--cinza--claro);
-  width: 400px;
-  border-radius: 20px;
-  border-width: 1px;
-  gap: 10px;
-  padding: 30px;
-  z-index: 1;
-}
-.form__title {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 120%;
-  text-align: center;
-  vertical-align: middle;
-  margin-bottom: 10px;
-}
-.form__ctn {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.form__grafismo {
-  position: absolute;
-  height: 100%;
-  left: 100px;
-  max-height: 600px;
-}
-.form__inputCtn {
-  position: relative;
-  width: 100%;
-}
-.form__input, .form__select {
-  background: white;
-  border-radius: 12px;
-  border: none;
-  box-sizing: border-box;
-  color: var(--cinza--escuro);
-  font-size: 14px;
-  height: 48px;
-  padding: 4px 20px 0;
-  width: 100%;
-  outline: 1px solid var(--cinza--claro);
-  transition: .5s;
-}
-.form__select {
-  appearance: none;
-  cursor: pointer;
-}
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-input[type=number] {
-    -moz-appearance: textfield; /* Firefox */
-}
-.form__select--1 {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.form__select--1::after {
-  content: '';
-  background-image: url('https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0bc96ced-05d8-4dca-9ac2-24f370718e9c.png');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-  color: rgb(158, 158, 158);
-  width: 12px;
-  height: 12px;
-  right: 24px;
-  top: 18px;
-  z-index: 2;
-}
-.form__cut {
-  background-color: white;
-  border-radius: 6px;
-  height: 10px;
-  left: 14px;
-  position: absolute;
-  top: -12px;
-  transform: translateY(0);
-  transition: transform 200ms;
-  width: 76px;
-}
-.form__cut-short {
-  width: 50px;
-}
-.form__input:focus ~ .form__cut,
-.form__input:not(:placeholder-shown) ~ .form__cut {
-  transform: translateY(8px);
-}
-.form__select:valid ~ .form__cut {
-  transform: translateY(8px);
-}
-.form__placeholder {
-  color: gray;
-  font-family: sans-serif;
-  line-height: 14px;
-  pointer-events: none;
-  position: absolute;
-  transform-origin: 0 50%;
-  transition: transform 200ms, color 200ms;
-  left: 20px;
-  top: 17px;
-}
-.form__input:focus ~ .form__placeholder,
-.form__input:not(:placeholder-shown) ~ .form__placeholder {
-  transform: translateY(-22px) translateX(-2px) scale(0.75);
-}
-.form__select:valid ~ .form__placeholder {
-  transform: translateY(-22px) translateX(-2px) scale(0.75);
-}
-.form__input:not(:placeholder-shown) ~ .form__placeholder {
-  color: gray;
-}
-.form__input:focus{
-  outline: 1px solid black;
-  transition: .5s;
-}
-.form__submit {
-  background-color: var(--red);
-  border-radius: 12px;
-  border: 0;
-  box-sizing: border-box;
-  color: #eee;
-  cursor: pointer;
-  font-size: 16px;
-  height: 50px;
-  margin-top: 4px;
-  text-align: center;
-  width: 100%;
-  transition: .2s;
-}
-.form__submit:active {
-  transition: .2s;
-  background-color: #74031C;
-}
-.form__disclamer {
-  font-size: 10px;
-  color: #4D4D4D;
-  text-align: center;
-  margin-top: 4px;
-}
-.input--1 .form__cut {
-  width: 122px;
-}
-.input--2 .form__cut {
-  width: 128px;
-}
-.form__input--3 .form__cut {
-  width: 214px;
-}
-.form__input--4 .form__cut {
-  width: 150px;
-}
-.form__input--5 .form__cut {
-  width: 226px;
-}
-/* Select */
-.form__select--1 .form__cut {
-  width: 198px;
-}
-.form__select--2 .form__cut {
-  width: 128px;
-}
-.form__select--3 .form__cut {
-  width: 168px;
-}
-.form__select--1 .form__placeholder {
-  top: 18px;
-}
-/*  */
-.form__error {
-  position: relative;
-  display: block;
-  color: var(--roxo);
-  font-size: 12px;
-  margin-top: 8px;
-  z-index: 2;
-} 
-.form__error-err .form__input, .form__error-err .form__select {
-  outline: 1px solid var(--roxo);
-}
-.form__error-err .form__placeholder {
-  color: var(--roxo);
-}
-.form__input--telefone {
-  display: flex;
-  position: relative;
-}
-/* Checkboxs */
-.form__checkbox {
-  align-items: center;
-  display: flex;
-  gap: 16px;
-  font-size: 14px;
-}
-.form__check--title {
-  font-weight: 600;
-  color: rgba(145, 145, 145, 1);
-}
-input[type="radio"] {
-  display: none;
-}
-.radio-label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 14px;
-  color: rgba(145, 145, 145, 1);
-}
-.radio-custom {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--cinza--claro);
-  border-radius: 6px;
-  margin-right: 4px;
-  position: relative;
-  transition: all .2s ease-in-out;
-}
-input[type="radio"]:checked + .radio-custom::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: var(--red);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-input[type="radio"]:checked ~ .radio-custom {
-  border-color: var(--red);
-}
-.radio-label:hover .radio-custom {
-  border-color: var(--red);
-}
-@media screen and(max-width: 400px) {
-  .form__input {
-    font-size: 14px;
+  .form__grafismo {
+    position: absolute;
+    height: 100%;
+    left: 100px;
+    max-height: 600px;
   }
-}
+  /*FORM*/
+  .banner__colummn--1 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 351px;
+    border-radius: 20px;
+    background: #FFF;
+    padding: 32px 35px;
+    border-radius: 20px;
+    border: 1px solid #E0E0E0;
+    position: relative;
+    z-index: 9;
+  }
+  .form__forms-button {
+    border-radius: 16px;
+    background: #59D359;
+    width: 100%;
+    height: 44px;
+    color: black;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  .form__disclaimer {
+    color: #767676;
+    text-align: center;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+  .form__disclaimer a {
+    color: #999;
+    text-decoration: underline;
+  }
+  .form__label {
+    color: black;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    margin: 12px 0 5px 0;
+    font-family: Poppins;
+  }
+  .input_titles span, .form__label span {
+    color: #E80537;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    width: 280px;
+    height: 36px;
+    border-radius: 5.83px;
+    border: 1.166px solid #E0E0E0;
+    background: #FFF;
+    outline: none;
+    padding-left: 10px;
+    font-size: 13.3px;
+  }
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder,
+  input[type="tel"]::placeholder,
+  select {
+    color: #D0D0D0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 120%;
+    font-family: Poppins;
+    font-weight: 400;
+  }
+  select {
+    cursor: pointer;
+  }
+  select:valid  {
+    color: black;
+  }
+  select option {
+    color: black;
+  }
+  .input_titles {
+    color: black;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    margin-bottom: 0;
+    margin-top: 6px;
+  }
+  .container {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    user-select: none;
+  }
+  .form__title-clienteCaju {
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 9px 0;
+  }
+  .form__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: black;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+  }
+  .form__radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 5px;
+  }
 </style>
 
 <style>
@@ -424,8 +314,6 @@ input[type="radio"]:checked ~ .radio-custom {
 }
 .banner__col--2 {
   position: relative;
-  display: flex;
-  align-items: center;
 }
 .banner__description {
   color: white;
@@ -512,7 +400,6 @@ input[type="radio"]:checked ~ .radio-custom {
   padding: 36px;
   border-radius: 12px;
   gap: 12px;
-  font-family: Roboto;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
@@ -635,7 +522,6 @@ footer {
   border-radius: 14px;
   background: var(--Backgrounds-Primary, #FFF);
   color: #E80537;
-  font-family: Poppins;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -664,7 +550,6 @@ footer {
 }
 .foooter__direitos {
   color: var(--Backgrounds-Primary, #FFF);
-  font-feature-settings: 'ss01' on;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -683,7 +568,6 @@ footer {
 }
 .footer__termos p {
   color: var(--Backgrounds-Primary, #FFF);
-  font-feature-settings: 'ss01' on;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -698,8 +582,11 @@ footer {
 
 @media screen and (max-width: 1000px) {
   /*  */
-  .form {
+  form, input[type="text"], input[type="email"], input[type="tel"], select {
     width: 100%;
+  }
+  .form__grafismo {
+    display: none;
   }
   /*  */
   .proteja__grid, .guia .max__width, .banner__grid, .cartao {
@@ -879,111 +766,68 @@ footer {
         <div class="banner__col--2">
           <img class="form__grafismo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/65f00ef3-f7be-46b5-b263-41a75a9bb594.png" alt="">
           
-          
-          <div class="form">
-            <p class="form__title">Baixe o material!</p>
-            <div class="form__ctn">
-        
-                <div class="form__inputCtn input--1">
-                  <input id="valName" class="form__input" type="text" placeholder="" />
-                  <div class="form__cut"></div>
-                  <label for="valName" class="form__placeholder">Digite aqui seu nome</label>
-                </div>
-        
-                <div class="form__inputCtn input--2">
-                  <input id="valEmail" class="form__input" type="text" placeholder="" />
-                  <div class="form__cut"></div>
-                  <label for="valEmail" class="form__placeholder">Digite aqui seu e-mail</label>
-                </div>
-        
-                <div class="form__inputCtn form__select--1">
-                  <select id="valTrabalho" class="form__select" name="" required>
-                    <option value="" selected disabled></option> <!-- Opção vazia -->
-                    <option value="socio">Sócio / Diretor</option>
-                    <option value="gerente">Gerente / Coordenador(a)</option>
-                    <option value="analista">Analista</option>
-                    <option value="assistem">Assistente</option>
-                    <option value="estagiarios">Estagiário</option>
-                    <option value="outros">Outros</option>
-                  </select>
-                  <div class="form__cut"></div>
-                  <label for="valTrabalho" class="form__placeholder">Selecione a área que você trabalha</label>
-                </div>
-        
-                <div class="form__inputCtn form__select--2">
-                  <select id="valCargo" class="form__select" name="" required>
-                    <option value="" selected disabled></option> <!-- Opção vazia -->
-                    <option value="socio">Estagiário</option>
-                    <option value="socio">Junior</option>
-                    <option value="socio">Pleno</option>
-                    <option value="socio">Senior</option>
-                  </select>
-                  <div class="form__cut"></div>
-                  <label for="valCargo" class="form__placeholder">Selecione o seu cargo</label>
-                </div>
-              
-                <div class="form__inputCtn form__input--3">
-                  <input id="valNumero" class="form__input" type="text" placeholder="" />
-                  <div class="form__cut form__cut-short"></div>
-                  <label for="valNumero" class="form__placeholder">Digite aqui o seu número para contato</label>
-                </div>
-        
-                <div class="form__inputCtn form__input--4">
-                  <input id="valEmpresa" class="form__input" type="text" placeholder="" />
-                  <div class="form__cut form__cut-short"></div>
-                  <label for="valEmpresa" class="form__placeholder">Digite aqui a sua empresa</label>
-                </div>
-        
-                <div class="form__inputCtn form__input--5">
-                  <input id="valFuncionarios" class="form__input" type="number" placeholder="" />
-                  <div class="form__cut form__cut-short"></div>
-                  <label for="valFuncionarios" class="form__placeholder">Quantos funcionários tem sua empresa?</label>
-                </div>
-        
-                <div class="form__inputCtn form__select--3">
-                  <select id="valDesafio" class="form__select" name="" required>
-                    <option value="" selected disabled></option> <!-- Opção vazia -->
-                    <option value="socio">Estagiário</option>
-                    <option value="socio">Junior</option>
-                    <option value="socio">Pleno</option>
-                    <option value="socio">Senior</option>
-                  </select>
-                  <div class="form__cut"></div>
-                  <label for="valDesafio" class="form__placeholder">Selecione o seu maior desafio</label>
-                </div>
+          <form>
+            <div class="form__container">
+              <label class="form__label" for="nome">Nome para contato<span>*</span></label>
+              <input type="text" id="valName" name="telefone" placeholder="Digite o nome" required maxlength="60">
+            </div>
+            <div class="form__container">
+              <label class="form__label" for="email">Qual é o seu e-mail?<span>*</span></label>
+              <input type="email" id="valEmail" name="email" placeholder="Digite aqui seu e-mail corporativo" required
+                onblur="validacaoEmail(this)">
         
             </div>
-        
-            <div class="form__checkbox">
-              <p class="form__check--title">Você já é cliente Caju?</p>
-              
-              <div style="display: flex; gap: 9px;">
-                <label class="radio-label">
-                  <input type="radio" name="option" value="1">
-                  <span class="radio-custom"></span>
-                  Sim
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="option" value="2">
-                  <span class="radio-custom"></span>
-                  Não
-                </label>
-              </div>
-        
-              
+            <div class="form__container">
+              <label class="form__label" for="telefone">Telefone para contato<span>*</span></label>
+              <input type="tel" id="valTelefone" name="telefone" placeholder="00 00000-0000" oninput="formatarTelefone(this)" required>
+            </div>
+            <div class="select form__container">
+              <label class="form__label" for="cargo">Qual é o seu cargo?<span>*</span></label>
+              <select id="cargo" name="cargo" required placeholder="Selecione seu cargo">
+                <option value="" selected disabled>Selecione seu cargo</option>
+                <option value="Estagiário">Estagiario</option>
+                <option value="Assistente">Assistente</option>
+                <option value="Analista">Analista</option>
+                <option value="Coordenador/Gerente">Coordenador/Gerente</option>
+                <option value="Sócio/Diretor">Socio/Diretor</option>
+                <option value="Outro">Outro</option>
+              </select>
             </div>
         
-            <button type="text" class="form__submit">Baixar material</button>
-            <p class="form__disclamer">Ao continuar, esteja ciente da política de privacidade da Caju.</p>
-          </div>
+            <div class="form__container">
+              <label class="form__label" for="empresa">Nome da empresa<span>*</span></label>
+              <input type="text" id="empresa" name="empresa" placeholder="Digite o nome da empresa" required maxlength="100">
+            </div>
+            <div class="form__container">
+              <label class="form__label" for="colaboradores">Número de colaboradores<span>*</span></label>
+              <input type="text" id="valColaboradores" name="colaboradores" required minlength="1" maxlength="5"
+                oninput="onlyNumber(this)" placeholder="00000">
+            </div>
+            <div class="form__radio-group form__container">
+              <p class="input_titles">É cliente da Caju?<span>*</span>
+              </p>
+              <label class="form__label--radio">
+                <input type="radio" name="option_cliente" value="Sim">
+                <span>Sim, sou cliente Caju!</span>
+              </label>
+              <label class="form__label--radio">
+                <input type="radio" name="option_cliente" value="Não">
+                <span>Não, ainda não!</span>
+              </label>
+            </div>
+            <div class="form__container">
+              <input type="submit" value="Baixe o e-book" id="submitButton" class="form__forms-button" />
+            </div>
+            <p class="form__disclaimer">
+              Ao continuar, esteja ciente da <a data-hash="e_003_001_001_059_165_001" href="https://www.caju.com.br/privacidade"
+                target="_blank">política de
+                privacidade</a> da Caju.
+            </p>
+          </form>
 
 
         </div>
       </div>
-
-
-
-
     </div>
   </section>
   
@@ -1106,122 +950,34 @@ footer {
 </body>
 
 <script>
-  /* Scripts do formulário */
-  const valName = (e) => {
-    e.currentTarget.value = e.currentTarget.value.replace(/[^a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]/g, '')
-  }
-  const valFuncionarios = (e) => {
-    e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '') // Remove tudo que não for número
-  }
-  
-  const valNumero = (e) => {
-    let val = e.currentTarget.value.replace(/\D/g, ''); 
-    if (val.length > 11) val = val.slice(0, 11); // Limita a 11 dígitos (formato máximo)
-    let formatado = '';
-    if (val.length > 0) formatado += `(${val.slice(0, 2)}`; // Adiciona o DDD
-    if (val.length >= 3) formatado += `) ${val.slice(2, 7)}`; // Adiciona a primeira parte
-    if (val.length >= 8) formatado += `-${val.slice(7, 11)}`; // Adiciona a segunda parte
-  
-    e.currentTarget.value = formatado;
-  }
-  
-  const inputs = document.querySelectorAll(".form__input, .form__select");
-  inputs.forEach(input => { // Criar elementos de erro para cada campo
-    
-    const errorElement = document.createElement("p");
-    errorElement.classList.add("form__error");
-    errorElement.style.display = "none";
-    input.parentElement.appendChild(errorElement);
-  });
-  
-  const funcDOMContentLoaded = (e) => {
-    
-    const submitButton = document.querySelector(".form__submit")
-    submitButton.addEventListener("click", (event) => {
-  
-      inputs.forEach(input => {
-        
-        const errorElement = input.parentElement.querySelector(".form__error");
-        errorElement.style.display = "none";
-        errorElement.textContent = "";
-        const container = input.closest(".form__inputCtn");
-        
-        validadorInputs(input, container, errorElement)
-  
-        input.addEventListener('click', () => {
-          container.classList.remove('form__error-err')
-          errorElement.style.display = 'none'
-        }) // Remove o erro ao clicar novamente no input
-  
-      });
-  
-    });
-  }
-  
-  const message = {
-    ['valName']: "* Nome é obrigatório",
-    ['valEmail']: "* Nome é obrigatório",
-    ['valTrabalho']: "* Seu cargo é obrigatório",
-    ['valCargo']: "* Nome é obrigatório",
-    ['valNumero']: "* Nome é obrigatório",
-    ['valEmpresa']: "* Nome é obrigatório",
-    ['valFuncionarios']: "* Nome é obrigatório",
-    ['valDesafio']: "* Seu cargo é obrigatório",
-  }
-  
-  const validadorInputs = (input, container, errorElement) => {
-    let isValid = true
-      if (input.id === "valEmail" && !validateEmail(input.value)) { // input
-        container.classList.add('form__error-err')
-        errorElement.textContent = "* Nome é obrigatório";
-        errorElement.style.display = "block";
-        isValid = false;
-      } else if (input.id === "valNumero" && validateTelefone(input.value)) { // input
-        container.classList.add('form__error-err')
-        errorElement.textContent = "* Nome é obrigatório";
-        errorElement.style.display = "block";
-        isValid = false;
-      } else if (input.value == '') { // Seletor
-        container.classList.add('form__error-err')
-        errorElement.textContent = message[input.id];
-        errorElement.style.display = "block";
-        isValid = false;
-      }
-  
-      if (!isValid) event.preventDefault();
-  }
-  
-  const validateTelefone = (telefone) => {
-    return !(telefone.replace(/\D/g, '').length == 11)
-  }
-  
-  const validateEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-  
-  document.getElementById("valName").addEventListener("input", valName);
-  document.getElementById("valFuncionarios").addEventListener("input", valFuncionarios);
-  document.getElementById("valNumero").addEventListener("input", valNumero);
-  document.addEventListener("DOMContentLoaded", funcDOMContentLoaded);
-  
-  const inputsxxx = document.querySelectorAll(".form__input, .form__select");
-  inputsxxx.forEach(obj => {
-    console.log('obj', obj.parentElement.querySelector(".form__error"));
-    const element = obj.value
-    const errorElement = obj.parentElement.querySelector(".form__error")
-    const container = obj.closest(".form__inputCtn")
-    
-    obj.addEventListener('blur', (elem) => {
-      validadorInputs(obj, container, errorElement)
-    })
-  
-    obj.addEventListener('click', (elem) => {
-      container.classList.remove('form__error-err')
-      errorElement.style.display = 'none'
-    })
-  })
-  
-  </script>
+  /* Scripts formulário */
+const valName = (e) => {
+e.currentTarget.value = e.currentTarget.value.replace(/[^a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]/g, '')
+}
+const valColaboradores = (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '') // Remove tudo que não for número
+}
+const valTelefone = (e) => {
+  let val = e.currentTarget.value.replace(/\D/g, ''); 
+  if (val.length > 11) val = val.slice(0, 11); // Limita a 11 dígitos (formato máximo)
+  let formatado = '';
+  if (val.length > 0) formatado += `(${val.slice(0, 2)}`; // Adiciona o DDD
+  if (val.length >= 3) formatado += `) ${val.slice(2, 7)}`; // Adiciona a primeira parte
+  if (val.length >= 8) formatado += `-${val.slice(7, 11)}`; // Adiciona a segunda parte
+
+  e.currentTarget.value = formatado;
+}
+
+const valEmail = (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/\s+/g, '')
+}
+
+document.getElementById("valEmail").addEventListener("input", valEmail);
+document.getElementById("valName").addEventListener("input", valName);
+document.getElementById("valTelefone").addEventListener("input", valTelefone);
+document.getElementById("valColaboradores").addEventListener("input", valColaboradores);
+
+</script>
 
 <script>
 /* Scripts do counter */
