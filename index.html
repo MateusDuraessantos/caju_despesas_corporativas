@@ -258,6 +258,7 @@ button, .button__red, .button__white {
   gap: 40px;
   min-height: 600px;
   background: var(--orange);
+  overflow: hidden;
 }
 .banner .max__width {
   position: relative;
@@ -298,8 +299,8 @@ button, .button__red, .button__white {
 .banner__grid {
   display: grid;
   grid-template-columns: 1fr max-content;
-  gap: 100px;
-  width: calc(100% - 200px);
+  gap: min(8vw, 100px);
+  max-width: 1080px;
 }
 .banner__col--1 {
   display: flex;
@@ -520,14 +521,13 @@ footer {
   justify-content: flex-end;
   align-items: center;
   border-radius: 14px;
-  background: var(--Backgrounds-Primary, #FFF);
+  background: #FFF;
   color: #E80537;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   text-decoration: none;
-  width: 192px;
 }
 .footer__redes {
   display: flex;
@@ -542,6 +542,7 @@ footer {
 }
 .footer__mob img {
   height: 48px;
+  width: 48px;
   object-fit: contain;
 }
 .footer__icons, .footer__mob {
@@ -576,9 +577,15 @@ footer {
 .footer__container {
   display: flex;
   justify-content: space-between;
-  padding-top: 4vh;
+  padding-top: 24px;
 }
 /* FOOTER ↑ */
+
+@media screen and (max-width: 1100px) {
+  .banner__grid {
+    gap: 50px;
+  }
+}
 
 @media screen and (max-width: 1000px) {
   /*  */
@@ -679,6 +686,7 @@ footer {
   footer {
     width: calc(100% - 40px);
     margin: 20px auto;
+    padding: 24px 40px 32px 40px;
   }
   .footer__redes {
     display: flex;
@@ -688,17 +696,25 @@ footer {
   }
   .footer__logo {
     object-position: center;
+    height: 48px;
   }
   .footer__icons {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
   }
   .footer__container, .footer__termos {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
+  }
+  .footer__border {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .footer__container, .footer__redes {
+    padding: 0;
   }
 }
 
@@ -773,13 +789,12 @@ footer {
             </div>
             <div class="form__container">
               <label class="form__label" for="email">Qual é o seu e-mail?<span>*</span></label>
-              <input type="email" id="valEmail" name="email" placeholder="Digite aqui seu e-mail corporativo" required
-                onblur="validacaoEmail(this)">
+              <input type="email" id="valEmail" name="email" placeholder="Digite aqui seu e-mail corporativo" required>
         
             </div>
             <div class="form__container">
               <label class="form__label" for="telefone">Telefone para contato<span>*</span></label>
-              <input type="tel" id="valTelefone" name="telefone" placeholder="00 00000-0000" oninput="formatarTelefone(this)" required>
+              <input type="tel" id="valTelefone" name="telefone" placeholder="00 00000-0000" required>
             </div>
             <div class="select form__container">
               <label class="form__label" for="cargo">Qual é o seu cargo?<span>*</span></label>
@@ -800,23 +815,22 @@ footer {
             </div>
             <div class="form__container">
               <label class="form__label" for="colaboradores">Número de colaboradores<span>*</span></label>
-              <input type="text" id="valColaboradores" name="colaboradores" required minlength="1" maxlength="5"
-                oninput="onlyNumber(this)" placeholder="00000">
+              <input type="text" id="valColaboradores" name="colaboradores" required minlength="1" maxlength="5" placeholder="00000">
             </div>
             <div class="form__radio-group form__container">
               <p class="input_titles">É cliente da Caju?<span>*</span>
               </p>
               <label class="form__label--radio">
-                <input type="radio" name="option_cliente" value="Sim">
+                <input type="radio" name="option_cliente" value="Sim" required>
                 <span>Sim, sou cliente Caju!</span>
               </label>
               <label class="form__label--radio">
-                <input type="radio" name="option_cliente" value="Não">
+                <input type="radio" name="option_cliente" value="Não" required>
                 <span>Não, ainda não!</span>
               </label>
             </div>
             <div class="form__container">
-              <input type="submit" value="Baixe o e-book" id="submitButton" class="form__forms-button" />
+              <input type="submit" value="Baixe o e-book" id="submitButton" class="form__forms-button form__submit" />
             </div>
             <p class="form__disclaimer">
               Ao continuar, esteja ciente da <a data-hash="e_003_001_001_059_165_001" href="https://www.caju.com.br/privacidade"
@@ -824,8 +838,6 @@ footer {
                 privacidade</a> da Caju.
             </p>
           </form>
-
-
         </div>
       </div>
     </div>
@@ -895,7 +907,7 @@ footer {
           <p>Somos uma empresa de tecnologia que <strong>oferece benefícios e soluções para RHs</strong>, empregadores e gestores evoluírem a experiência, gestão e cuidado com suas operações e colaboradores.</p>
           <p>Oferecemos <strong>cartão multibenefícios</strong> que concentra diferentes modalidades de benefícios em um único cartão e app para o colaborador, <strong>solução em despesas corporativas</strong> para fluxo de adiantamentos mais ágeis, gestão de gastos e viagens corporativas.</p>
           <p>Além disso, temos uma <strong>solução integrada de premiações</strong> para incentivos, eventos ou para presentear colaboradores em ocasiões especiais via cartão Caju e a nossa plataforma <strong>Caju Ciclos</strong>, para admissão digital e gestão de dados.</p>
-          <a href="#banner" class="button__white">Saiba mais</a>
+          <a href="https://caju.com.br/" class="button__white" target="_blank">Saiba mais</a>
         
         </div>
       </div>
@@ -906,7 +918,7 @@ footer {
     <footer class="max__width">
       <div class="footer__redes">
         <img class="footer__logo" width="300" height="40"
-          src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/4b014168-9993-4033-b624-83cd44fe8412.png"
+          src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/1fabac2b-f29f-412f-b11e-90392b8f2fd2.png"
           alt="Logo caju">
         <div class="footer__icons">
           <div class="container_blog">
@@ -972,11 +984,18 @@ const valEmail = (e) => {
   e.currentTarget.value = e.currentTarget.value.replace(/\s+/g, '')
 }
 
+const funcDOMContentLoaded = (e) => {
+  const submitButton = document.querySelector(".form__submit")
+  submitButton.addEventListener("click", (event) => {
+
+  });
+}
+
 document.getElementById("valEmail").addEventListener("input", valEmail);
 document.getElementById("valName").addEventListener("input", valName);
 document.getElementById("valTelefone").addEventListener("input", valTelefone);
 document.getElementById("valColaboradores").addEventListener("input", valColaboradores);
-
+document.addEventListener("DOMContentLoaded", funcDOMContentLoaded);
 </script>
 
 <script>
