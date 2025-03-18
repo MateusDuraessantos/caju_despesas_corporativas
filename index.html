@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Caju</title>
 
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-MSKBQ9FX');</script>
+  <!-- End Google Tag Manager -->
+
 <style>
 /* Estilos Globais */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
@@ -108,146 +119,139 @@ button, .button__red, .button__white {
 /* Estilos Globais ↑ */
 </style>
 <style>
-  /* Formulário ↓ */
-  .form__grafismo {
-    position: absolute;
-    height: 100%;
-    left: 100px;
-    max-height: 600px;
-  }
-  /*FORM*/
-  .banner__colummn--1 {
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 351px;
-    border-radius: 20px;
-    background: #FFF;
-    padding: 32px 35px;
-    border-radius: 20px;
-    border: 1px solid #E0E0E0;
-    position: relative;
-    z-index: 9;
-  }
-  .form__forms-button {
-    border-radius: 16px;
-    background: #59D359;
-    width: 100%;
-    height: 44px;
-    color: black;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 24px;
-    border: none;
-    cursor: pointer;
-    margin-top: 8px;
-  }
-  .form__disclaimer {
-    color: #767676;
-    text-align: center;
-    font-size: 8px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
-    margin-top: 10px;
-    margin-bottom: 0;
-  }
-  .form__disclaimer a {
-    color: #999;
-    text-decoration: underline;
-  }
-  .form__label {
-    color: black;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
-    margin: 12px 0 5px 0;
-    font-family: Poppins;
-  }
-  .input_titles span, .form__label span {
-    color: #E80537;
-  }
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  select {
-    width: 280px;
-    height: 36px;
-    border-radius: 5.83px;
-    border: 1.166px solid #E0E0E0;
-    background: #FFF;
-    outline: none;
-    padding-left: 10px;
-    font-size: 13.3px;
-  }
-  input[type="text"]::placeholder,
-  input[type="email"]::placeholder,
-  input[type="tel"]::placeholder,
-  select {
-    color: #D0D0D0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 120%;
-    font-family: Poppins;
-    font-weight: 400;
-  }
-  select {
-    cursor: pointer;
-  }
-  select:valid  {
-    color: black;
-  }
-  select option {
-    color: black;
-  }
-  .input_titles {
-    color: black;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
-    margin-bottom: 0;
-    margin-top: 6px;
-  }
-  .container {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 2px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 400;
-    user-select: none;
-  }
-  .form__title-clienteCaju {
-    color: #000;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: normal;
-    margin: 9px 0;
-  }
-  .form__container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: black;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
-  }
-  .form__radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 5px;
-  }
+/* Formulário ↓ */
+.form__grafismo {
+  position: absolute;
+  height: 100%;
+  left: 100px;
+  max-height: 600px;
+}
+/*FORM*/
+.banner__colummn--1 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+form * {
+  font-family: Poppins;
+}
+form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 351px;
+  border-radius: 20px;
+  background: #FFF;
+  padding: 32px 35px;
+  border-radius: 20px;
+  border: 1px solid #E0E0E0;
+  z-index: 9;
+}
+.forms-button {
+  border-radius: 16px;
+  background: #59D359;
+  width: 100%;
+  height: 44px;
+  color: black;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  margin-top: 8px;
+}
+.forms__disclaimer {
+  color: #767676;
+  text-align: center;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.forms__disclaimer a {
+  color: #999;
+  text-decoration: underline;
+}
+label {
+  display: flex;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin: 12px 0 5px 0;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+  width: 280px;
+  height: 36px;
+  border-radius: 5.83px;
+  border: 1.166px solid #E0E0E0;
+  background: #FFF;
+  outline: none;
+  padding-left: 10px;
+}
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+select {
+  color: #D0D0D0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 120%;
+}
+.input_titles {
+  color: #000;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  margin-bottom: 0;
+  margin-top: 6px;
+}
+.container {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  user-select: none;
+}
+.title-clienteCaju {
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  margin: 9px 0;
+}
+.container-input {
+  width: 100%;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+requered {
+  color: #E80537;
+}
+select {
+  cursor: pointer;
+}
+select:valid {
+  color: black;
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+/* Formulário ↑ */
 </style>
 
 <style>
@@ -783,61 +787,62 @@ footer {
           <img class="form__grafismo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/65f00ef3-f7be-46b5-b263-41a75a9bb594.png" alt="">
           
           <form>
-            <div class="form__container">
-              <label class="form__label" for="nome">Nome para contato<span>*</span></label>
-              <input type="text" id="valName" name="telefone" placeholder="Digite o nome" required maxlength="60">
+            <div class="container-input">
+                <label style="margin-top: 0;" for="nome">Nome para contato<requered>*</requered></label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome" required maxlength="60">
             </div>
-            <div class="form__container">
-              <label class="form__label" for="email">Qual é o seu e-mail?<span>*</span></label>
-              <input type="email" id="valEmail" name="email" placeholder="Digite aqui seu e-mail corporativo" required>
-        
+            <div class="container-input">
+                <label for="email">Qual é o seu e-mail?<requered>*</requered></label>
+                <input type="email" id="email" name="email" placeholder="Digite aqui seu e-mail corporativo"
+                    required onblur="validacaoEmail(this)">
+
             </div>
-            <div class="form__container">
-              <label class="form__label" for="telefone">Telefone para contato<span>*</span></label>
-              <input type="tel" id="valTelefone" name="telefone" placeholder="00 00000-0000" required>
+            <div class="container-input">
+                <label for="telefone">Telefone para contato<requered>*</requered></label>
+                <input type="tel" id="telefone" class="testeste" name="telefone" placeholder="00 00000-0000" oninput="formatarTelefone(this)">
             </div>
-            <div class="select form__container">
-              <label class="form__label" for="cargo">Qual é o seu cargo?<span>*</span></label>
-              <select id="cargo" name="cargo" required placeholder="Selecione seu cargo">
-                <option value="" selected disabled>Selecione seu cargo</option>
-                <option value="Estagiário">Estagiario</option>
-                <option value="Assistente">Assistente</option>
-                <option value="Analista">Analista</option>
-                <option value="Coordenador/Gerente">Coordenador/Gerente</option>
-                <option value="Sócio/Diretor">Socio/Diretor</option>
-                <option value="Outro">Outro</option>
-              </select>
+            <div class="select container-input">
+                <label for="cargo">Qual é o seu cargo?<requered>*</requered></label>
+                <select id="cargo" name="cargo" required>
+                    <option value="" selected disabled>Selecione seu cargo</option>
+                    <option value="Estagiário">Estagiario</option>
+                    <option value="Assistente">Assistente</option>
+                    <option value="Analista">Analista</option>
+                    <option value="Coordenador/Gerente">Coordenador/Gerente</option>
+                    <option value="Sócio/Diretor">Socio/Diretor</option>
+                    <option value="Outro">Outro</option>
+                </select>
             </div>
-        
-            <div class="form__container">
-              <label class="form__label" for="empresa">Nome da empresa<span>*</span></label>
-              <input type="text" id="empresa" name="empresa" placeholder="Digite o nome da empresa" required maxlength="100">
+
+            <div class="container-input">
+                <label for="empresa">Nome da empresa<requered>*</requered></label>
+                <input type="text" id="empresa" name="empresa" placeholder="Digite o nome da empresa" required maxlength="100">
             </div>
-            <div class="form__container">
-              <label class="form__label" for="colaboradores">Número de colaboradores<span>*</span></label>
-              <input type="text" id="valColaboradores" name="colaboradores" required minlength="1" maxlength="5" placeholder="00000">
+            <div class="container-input">
+                <label for="colaboradores">Número de colaboradores<requered>*</requered></label>
+                <input type="text" id="colaboradores" name="colaboradores" required minlength="1" maxlength="5" oninput="onlyNumber(this)" placeholder="00000">
             </div>
-            <div class="form__radio-group form__container">
-              <p class="input_titles">É cliente da Caju?<span>*</span>
-              </p>
-              <label class="form__label--radio">
-                <input type="radio" name="option_cliente" value="Sim" required>
-                <span>Sim, sou cliente Caju!</span>
-              </label>
-              <label class="form__label--radio">
-                <input type="radio" name="option_cliente" value="Não" required>
-                <span>Não, ainda não!</span>
-              </label>
+            <div class="radio-group container-input">
+                <p class="input_titles">É cliente da Caju?<requered>*</requered>
+                </p>
+                <label style="margin-top: 5px;">
+                    <input type="radio" name="option_cliente" value="Sim">
+                    <span style="margin-left: 4px;">Sim, sou cliente Caju!</span>
+                </label>
+                <label style="margin-top: 0;">
+                    <input type="radio" name="option_cliente" value="Não">
+                    <span style="margin-left: 4px;">Não, ainda não!</span>
+                </label>
             </div>
-            <div class="form__container">
-              <input type="submit" value="Baixe o e-book" id="submitButton" class="form__forms-button form__submit" />
+            <div data-hash="e_003_001_001_059_018_001" class="container-input">
+                <input type="submit" value="Baixe o e-book" id="submitButton" class="forms-button" />
             </div>
-            <p class="form__disclaimer">
-              Ao continuar, esteja ciente da <a data-hash="e_003_001_001_059_165_001" href="https://www.caju.com.br/privacidade"
-                target="_blank">política de
-                privacidade</a> da Caju.
+            <p class="forms__disclaimer">
+                Ao continuar, esteja ciente da <a data-hash="e_003_001_001_059_165_001"
+                    href="https://www.caju.com.br/privacidade" target="_blank">política de
+                    privacidade</a> da Caju.
             </p>
-          </form>
+        </form>
         </div>
       </div>
     </div>
@@ -960,16 +965,19 @@ footer {
   </section>
 
 </body>
+<script src="https://conteudo.caju.com.br/script-pat-2025"></script>
 
 <script>
-  /* Scripts formulário */
-const valName = (e) => {
-e.currentTarget.value = e.currentTarget.value.replace(/[^a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]/g, '')
-}
-const valColaboradores = (e) => {
-  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '') // Remove tudo que não for número
-}
-const valTelefone = (e) => {
+/* Scripts formulário */
+document.getElementById("email").addEventListener("input", (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/\s+/g, '')
+});
+
+document.getElementById("nome").addEventListener("input", (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/[^a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]/g, '')
+});
+
+document.getElementById("telefone").addEventListener("input", (e) => {
   let val = e.currentTarget.value.replace(/\D/g, ''); 
   if (val.length > 11) val = val.slice(0, 11); // Limita a 11 dígitos (formato máximo)
   let formatado = '';
@@ -978,24 +986,12 @@ const valTelefone = (e) => {
   if (val.length >= 8) formatado += `-${val.slice(7, 11)}`; // Adiciona a segunda parte
 
   e.currentTarget.value = formatado;
-}
+});
 
-const valEmail = (e) => {
-  e.currentTarget.value = e.currentTarget.value.replace(/\s+/g, '')
-}
+document.getElementById("colaboradores").addEventListener("input", (e) => {
+  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, '') // Remove tudo que não for número
+});
 
-const funcDOMContentLoaded = (e) => {
-  const submitButton = document.querySelector(".form__submit")
-  submitButton.addEventListener("click", (event) => {
-
-  });
-}
-
-document.getElementById("valEmail").addEventListener("input", valEmail);
-document.getElementById("valName").addEventListener("input", valName);
-document.getElementById("valTelefone").addEventListener("input", valTelefone);
-document.getElementById("valColaboradores").addEventListener("input", valColaboradores);
-document.addEventListener("DOMContentLoaded", funcDOMContentLoaded);
 </script>
 
 <script>
